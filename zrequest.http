@@ -1,0 +1,52 @@
+GET http://localhost:4004/odata/Employees
+###
+
+DELETE http://localhost:4004/odata/Employees(3)
+
+###
+
+POST http://localhost:4004/odata/Employees
+Content-Type: application/json
+
+{
+      "FIRST_NAME": "Sonal",
+      "LAST_NAME": "Sarkar",
+      "GENDER": "Male",
+      "EMAIL": "sonaalsarkar1997@gmail.com",
+      "PHONE_NO": 91176005113,
+      "QR_CODE": ""
+}
+
+###
+
+GET http://localhost:4004/odata/PunchingDetails
+
+###
+
+POST http://localhost:4004/odata/Punch
+Content-Type: application/json
+
+{
+    "Action":"IN",
+    "EmpId":2
+}
+
+###
+
+GET http://localhost:4004/odata/EmployeeF4()
+
+###
+
+POST http://localhost:4004/odata/PunchingDetails
+Content-Type: application/json
+
+{
+    "EMP_CODE_EMP_ID":3,
+    "PUNCH_DATE":"12/12/2024",
+    "PUNCH_IN":"11:05:44 am",
+    "PUNCH_OUT":"07:00:00 pm"
+}
+
+###
+
+DELETE http://localhost:4004/odata/PunchingDetails("12/12/2024")

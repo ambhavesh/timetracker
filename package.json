@@ -1,0 +1,36 @@
+{
+  "name": "timetracker",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.13.8",
+    "@cap-js/hana": "1.1.0",
+    "@sap/cds": "^7",
+    "@sap/xssec": "^4",
+    "express": "^4",
+    "nodemailer": "^6.9.16",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.2.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "h": "cds watch --profile hybrid",
+    "d": "cf deploy mta_archives/timetracker_1.0.0.mtar"
+  },
+  "cds": {
+    "requires": {
+      "db": "hana",
+      "auth": "dummy"
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  }
+}
