@@ -1,7 +1,7 @@
 GET http://localhost:4004/odata/Employees
 ###
 
-DELETE http://localhost:4004/odata/Employees(3)
+DELETE http://localhost:4004/odata/Employees(7)
 
 ###
 
@@ -9,12 +9,17 @@ POST http://localhost:4004/odata/Employees
 Content-Type: application/json
 
 {
-      "FIRST_NAME": "Sonal",
-      "LAST_NAME": "Sarkar",
+      "FIRST_NAME": "Abhishek",
+      "LAST_NAME": "Singh",
       "GENDER": "Male",
-      "EMAIL": "sonaalsarkar1997@gmail.com",
-      "PHONE_NO": 91176005113,
+      "EMAIL": "abhishek.singh@vsdtechno.com",
+      "EXPERIENCE":7,
+      "DESIGNATION":"SAP Success Factors Consultant",
+      "MODULE":"SAP Success Factors",
+      "MODULE_TYPE":"Functional",
+      "PHONE_NO": 1234567890,
       "QR_CODE": ""
+      
 }
 
 ###
@@ -28,12 +33,12 @@ Content-Type: application/json
 
 {
     "Action":"IN",
-    "EmpId":2
+    "EmpId":3
 }
 
 ###
 
-GET http://localhost:4004/odata/EmployeeF4()
+GET http://localhost:4004/odata/Leaves
 
 ###
 
@@ -41,12 +46,68 @@ POST http://localhost:4004/odata/PunchingDetails
 Content-Type: application/json
 
 {
-    "EMP_CODE_EMP_ID":3,
-    "PUNCH_DATE":"12/12/2024",
-    "PUNCH_IN":"11:05:44 am",
-    "PUNCH_OUT":"07:00:00 pm"
+    "EMP_CODE_EMP_ID":2,
+    "PUNCH_DATE":"4/1/2025",
+    "PUNCH_IN":"10:05:44",
+    "PUNCH_OUT":""
 }
 
 ###
 
-DELETE http://localhost:4004/odata/PunchingDetails("12/12/2024")
+GET http://localhost:4004/odata/EmployeePunchingDetails
+
+###
+
+GET http://localhost:4004/odata/LeaveRequests
+
+###
+
+POST http://localhost:4004/odata/LeaveRequests
+Content-Type: application/json
+
+{
+    "APPLIED_BY_EMP_ID":6,
+    "FROM_DATE":"27/01/2025",
+    "TO_DATE":"29/01/2025",
+    "PRIORITY":"Medium",
+    "TYPE":"Casual Leave"
+}
+
+###
+DELETE http://localhost:4004/odata/LeaveRequests('9e8665ff-9f05-46d4-9808-3d3bd081f01f')
+
+###
+
+POST http://localhost:4004/odata/ApproveLeave
+Content-Type: application/json
+
+{
+    "LeaveType":"Casual Leave",
+    "EmpId":6
+}
+
+###
+
+POST http://localhost:4004/odata/RejectLeave
+Content-Type: application/json
+
+{
+    "LeaveType":"Casual Leave",
+    "EmpId":1
+}
+
+###
+
+
+GET http://localhost:4004/odata/LeaveBalances
+
+###
+
+POST http://localhost:4004/odata/LeaveBalances
+Content-Type: application/json
+
+{
+    "TOTAL_LEAVE_COUNT":20,
+    "AVAILABLE_LEAVE_COUNT":15,
+    "EMP_EMP_ID":6
+}
